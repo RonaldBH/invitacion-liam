@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mi Bautizo y Corte de Pelo - Liam Stefano</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        babyBlue: '#e0f2fe',
+                        skySoft: '#bae6fd',
+                        goldSoft: '#d4af37',
+                        goldDark: '#997a15',
+                        navyText: '#1e3a8a',
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        poppins: ['"Poppins"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #fef9c3 100%);
+            color: #334155;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #b8860b 0%, #d4af37 50%, #daa520 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #d4af37;
+        }       
+        .gold-border {
+            border-color: #d4af37;
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.08), 0 8px 10px -6px rgba(30, 58, 138, 0.08);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .app-container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Botón flotante de Música -->
+        <div class="fixed bottom-6 right-6 z-50">
+            <button onclick="toggleAudio()" class="w-12 h-12 bg-navyText text-goldSoft rounded-full shadow-2xl flex items-center justify-center border-2 border-goldSoft transition-transform hover:scale-110">
+                <i id="musicIcon" class="fas fa-music text-lg"></i>
+            </button>
+            <audio id="bgMusic" loop src="mfcc-kids-kids-music-590366.mp3"></audio>
+        </div>
+
+        <script>
+            const audio = document.getElementById('bgMusic');
+            const icon = document.getElementById('musicIcon');
+
+            window.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    icon.className = "fas fa-music text-lg";
+                }
+            }, { once: true });
+
+            function toggleAudio() {
+                if (audio.paused) {
+                    audio.play();
+                    icon.className = "fas fa-music text-lg";
+                } else {
+                    audio.pause();
+                    icon.className = "fas fa-volume-mute text-lg";
+                }
+            }
+        </script>
+
+        <!-- Header Elegante -->
+        <header class="relative bg-gradient-to-b from-sky-100 via-sky-50 to-white px-6 pt-12 pb-10 text-center rounded-b-[40px] shadow-md">
+            <div class="absolute top-4 left-6 text-goldSoft text-xl animate-pulse"><i class="fas fa-star"></i></div>
+            <div class="absolute top-10 right-8 text-goldSoft text-sm animate-pulse"><i class="fas fa-star"></i></div>
+
+            <div class="mx-auto w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md mb-4 gold-border border-2 floating">
+                <i class="fas fa-dove text-sky-500 text-2xl"></i>
+            </div>
+
+            <p class="font-playfair italic text-slate-600 text-sm px-2 mb-6 leading-relaxed">
+                "Con la pureza de mi corazón y la inocencia de mi edad te recibo Señor en Mi Bautizo."
+            </p>
+
+            <span class="inline-block bg-sky-100 text-navyText text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+                Mi Bautizo y Corte de Pelo
+            </span>
+
+            <h1 class="font-playfair text-4xl sm:text-5xl font-bold text-navyText mb-2 tracking-tight">
+                Liam Stefano
+            </h1>
+
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-goldSoft to-transparent mx-auto my-4"></div>
+
+            <p class="text-xs text-slate-500 uppercase tracking-widest font-medium mb-6">
+                Sábado 24 de Octubre, 2026
+            </p>
+
+            <!-- Foto Principal con modal -->
+            <div onclick="openModal('imagen1.jpeg', 'Liam Stefano')" class="relative w-40 h-40 mx-auto rounded-full p-1 bg-gradient-to-tr from-goldSoft via-sky-300 to-sky-500 shadow-xl mb-6 cursor-pointer group">
+                <img src="imagen1.jpeg" 
+                     onerror="this.src='https://placehold.co/400x400/e0f2fe/1e3a8a?text=Liam+Stefano'"
+                     alt="Liam Stefano" 
+                     class="w-full h-full object-cover rounded-full bg-white group-hover:scale-105 transition duration-300">
+                <div class="absolute bottom-1 right-3 bg-white p-2 rounded-full shadow-md text-goldSoft">
+                    <i class="fas fa-search-plus text-sm"></i>
+                </div>
+            </div>
+
+            <div class="text-slate-600 text-xs flex items-center justify-center gap-2 animate-bounce mt-2">
+                <span>Desliza para ver más</span>
+                <i class="fas fa-chevron-down text-goldSoft"></i>
+            </div>
+        </header>
+
+        <main class="flex-grow px-6 py-8 space-y-10">
+
+            <!-- Cuenta Regresiva -->
+            <section class="bg-gradient-to-br from-navyText to-sky-900 text-white rounded-3xl p-6 text-center card-shadow relative overflow-hidden">
+                <h2 class="font-playfair text-xl font-semibold mb-1 text-sky-200">Cuenta Regresiva</h2>
+                <p class="text-xs text-sky-300 mb-5">Faltan pocos días para nuestro gran día</p>
+
+                <div id="countdown" class="grid grid-cols-4 gap-2 text-center">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-2 border border-white/10">
+                        <span id="days" class="block font-bold text-2xl text-goldSoft">00</span>
+                        <span class="text-[10px] uppercase tracking-wider text-sky-200">Días</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-2 border border-white/10">
+                        <span id="hours" class="block font-bold text-2xl text-goldSoft">00</span>
+                        <span class="text-[10px] uppercase tracking-wider text-sky-200">Horas</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-2 border border-white/10">
+                        <span id="minutes" class="block font-bold text-2xl text-goldSoft">00</span>
+                        <span class="text-[10px] uppercase tracking-wider text-sky-200">Min</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-2 border border-white/10">
+                        <span id="seconds" class="block font-bold text-2xl text-goldSoft">00</span>
+                        <span class="text-[10px] uppercase tracking-wider text-sky-200">Seg</span>
+                    </div>
+                </div>
+
+                <!-- Botón Agregar a Calendario -->
+                <div class="mt-6 pt-4 border-t border-white/10">
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bautizo+y+Corte+de+Pelo+-+Liam+Stefano&dates=20261024T213000Z/20261025T030000Z&details=Acompa%C3%B1anos+en+el+bautizo+y+corte+de+pelo+de+nuestro+querido+Liam+Stefano.&location=Parroquia+Nuestra+Se%C3%B1ora+del+Camino,+Ate" 
+                       target="_blank"
+                       class="inline-flex items-center gap-2 bg-goldSoft hover:bg-goldDark text-white text-xs font-semibold py-2 px-4 rounded-xl transition shadow-md">
+                        <i class="fas fa-calendar-plus"></i> Guardar en mi Calendario
+                    </a>
+                </div>
+            </section>
+
+            <!-- Familia y Testigos -->
+            <section class="space-y-6">
+                <div class="text-center">
+                    <span class="text-goldSoft text-xs font-semibold tracking-widest uppercase block mb-1">Bendiciones</span>
+                    <h2 class="font-playfair text-2xl font-bold text-navyText">Familia y Testigos</h2>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="bg-gradient-to-r from-sky-50 to-white p-5 rounded-2xl border border-sky-100 card-shadow text-center">
+                        <div class="w-10 h-10 bg-sky-200 text-navyText rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-heart text-sm"></i>
+                        </div>
+                        <h3 class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Mis Padres</h3>
+                        <p class="font-playfair font-bold text-navyText text-lg">Edward Bautista Huillca</p>
+                        <p class="font-playfair font-bold text-navyText text-lg">Andrea Coraje Cárdenas</p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-amber-50 to-white p-5 rounded-2xl border border-amber-100 card-shadow text-center">
+                        <div class="w-10 h-10 bg-amber-200 text-amber-800 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-hands-holding-child text-sm"></i>
+                        </div>
+                        <h3 class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Mis Padrinos</h3>
+                        <p class="font-playfair font-bold text-amber-900 text-lg">Juan C. Arias Quispe</p>
+                        <p class="font-playfair font-bold text-amber-900 text-lg">Leydy Bautista Huillca</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ceremonia y Recepción -->
+            <section class="space-y-6">
+                <div class="text-center">
+                    <span class="text-goldSoft text-xs font-semibold tracking-widest uppercase block mb-1">¿Dónde y Cuándo?</span>
+                    <h2 class="font-playfair text-2xl font-bold text-navyText">Ceremonia y Recepción</h2>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-sky-100 card-shadow relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-sky-500 text-white text-xs px-3 py-1 rounded-bl-xl font-medium">Ceremonia</div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center flex-shrink-0 text-xl">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="font-playfair font-bold text-lg text-navyText">Parroquia Nuestra Señora del Camino</h3>
+                            <p class="text-xs font-semibold text-sky-700"><i class="far fa-clock"></i> Sábado 24 de Octubre, 2026 • 4:30 p.m.</p>
+                            <p class="text-xs text-slate-500 pt-1">Calle Los Geranios 153, Urb. Baldiviezo, Ate.</p>
+                            <p class="text-[11px] text-amber-600 italic">Ref. Espalda del camal de Yerbateros</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 flex justify-end">
+                        <a href="https://maps.app.goo.gl/FiVNnryyTzzEjyuR7" target="_blank" 
+                           class="w-full bg-sky-50 hover:bg-sky-100 text-navyText text-xs font-semibold py-2.5 px-4 rounded-xl transition flex items-center justify-center gap-2">
+                            <i class="fas fa-map-marked-alt text-sky-600"></i> Ver ubicación en Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-amber-100 card-shadow relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-goldSoft text-white text-xs px-3 py-1 rounded-bl-xl font-medium">Recepción</div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0 text-xl">
+                            <i class="fas fa-glass-cheers"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="font-playfair font-bold text-lg text-navyText">Fiesta de Bautizo y Corte de Pelo</h3>
+                            <p class="text-xs font-semibold text-amber-800"><i class="far fa-clock"></i> Sábado 24 de Octubre, 2026 • 7:00 p.m.</p>
+                            <p class="text-xs text-slate-500 pt-1">Av. Nicolás Ayllón 931</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 flex justify-end">
+                        <a href="https://maps.app.goo.gl/evnBScfi6bg75qyKA" target="_blank" 
+                           class="w-full bg-amber-50 hover:bg-amber-100 text-amber-900 text-xs font-semibold py-2.5 px-4 rounded-xl transition flex items-center justify-center gap-2">
+                            <i class="fas fa-map-marked-alt text-amber-600"></i> Ver ubicación en Google Maps
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Galería Interactiva con Modal -->
+            <section class="space-y-4">
+                <div class="text-center">
+                    <span class="text-goldSoft text-xs font-semibold tracking-widest uppercase block mb-1">Momentos Especiales</span>
+                    <h2 class="font-playfair text-2xl font-bold text-navyText">Galería de Liam Stefano</h2>
+                    <p class="text-xs text-slate-500">Toca cualquier foto para ampliarla</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div onclick="openModal('imagen2.jpeg', 'Liam Estilo Luigi')" class="relative group overflow-hidden rounded-2xl shadow-md bg-sky-50 aspect-square border-2 border-white cursor-pointer">
+                        <img src="imagen2.jpeg" onerror="this.src='https://placehold.co/300x300/fef9c3/b8860b?text=Liam+Luigi'" alt="Liam Luigi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div onclick="openModal('imagen3.jpeg', 'Liam con Capucha')" class="relative group overflow-hidden rounded-2xl shadow-md bg-sky-50 aspect-square border-2 border-white cursor-pointer">
+                        <img src="imagen3.jpeg" onerror="this.src='https://placehold.co/300x300/e0f2fe/1e3a8a?text=Liam+Hoodie'" alt="Liam Hoodie" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div onclick="openModal('imagen4.jpeg', 'Liam Sonriendo')" class="relative group overflow-hidden rounded-2xl shadow-md bg-sky-50 aspect-square border-2 border-white cursor-pointer">
+                        <img src="imagen4.jpeg" onerror="this.src='https://placehold.co/300x300/e0f2fe/1e3a8a?text=Liam+Sonrisa'" alt="Liam Sonrisa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div onclick="openModal('imagen5.jpeg', 'Liam Mágico')" class="relative group overflow-hidden rounded-2xl shadow-md bg-sky-50 aspect-square border-2 border-white cursor-pointer">
+                        <img src="imagen5.jpeg" onerror="this.src='https://placehold.co/300x300/fef9c3/b8860b?text=Liam+Bautizo'" alt="Liam Bautizo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formulario RSVP -->
+            <section class="bg-gradient-to-br from-sky-50 via-white to-sky-100 p-6 rounded-3xl border border-sky-200 card-shadow">
+                <div class="text-center mb-5">
+                    <span class="text-goldSoft text-xs font-semibold tracking-widest uppercase block mb-1">Reserva tu lugar</span>
+                    <h2 class="font-playfair text-2xl font-bold text-navyText">Confirmación de Asistencia</h2>
+                    <p class="text-xs text-slate-500 mt-1">Por favor confirma tu asistencia antes del 20 de Octubre</p>
+                </div>
+
+                <form id="rsvpForm" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Nombre y Apellido / Familia</label>
+                        <input type="text" id="guestName" required class="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 focus:border-sky-500 focus:outline-none bg-white shadow-sm" placeholder="Ej. Familia Pérez / Juan Gómez">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">¿Asistirás?</label>
+                            <select id="attendance" class="w-full px-3 py-3 text-sm rounded-xl border border-slate-200 focus:border-sky-500 focus:outline-none bg-white shadow-sm">
+                                <option value="Sí, ahí estaré con alegría">¡Sí, asistiré!</option>
+                                <option value="Lo siento, no podré asistir">No podré asistir</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Nº de Pases</label>
+                            <select id="guestPasses" class="w-full px-3 py-3 text-sm rounded-xl border border-slate-200 focus:border-sky-500 focus:outline-none bg-white shadow-sm">
+                                <option value="1 pase">1 Pase</option>
+                                <option value="2 pases" selected>2 Pases</option>
+                                <option value="3 pases">3 Pases</option>
+                                <option value="4 pases">4 Pases</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Mensaje para Liam o sus padres</label>
+                        <textarea id="guestMessage" rows="2" class="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 focus:border-sky-500 focus:outline-none bg-white shadow-sm" placeholder="Escribe tus buenos deseos..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 px-6 rounded-xl transition shadow-lg flex items-center justify-center gap-2 text-sm">
+                        <i class="fab fa-whatsapp text-lg"></i> Confirmar por WhatsApp
+                    </button>
+                </form>
+            </section>
+
+            <!-- Sugerencia de Regalo -->
+            <section class="bg-gradient-to-r from-amber-50 to-sky-50 p-6 rounded-3xl border border-amber-200/60 card-shadow text-center space-y-3">
+                <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center mx-auto text-xl">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3 class="font-playfair font-bold text-lg text-navyText">Sugerencia de Regalo</h3>
+                <p class="text-xs text-slate-600 leading-relaxed px-2">
+                    Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con Liam Stefano para su bautizo y corte de pelo, contaremos con <strong>lluvia de sobres / sobrecarta</strong> en la recepción.
+                </p>
+            </section>
+
+        </main>
+
+        <footer class="bg-navyText text-white text-center py-8 px-6 mt-6 rounded-t-[30px]">
+            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-3 text-goldSoft">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h2 class="font-playfair text-xl font-bold mb-1">¡Te esperamos!</h2>
+            <p class="text-xs text-sky-200 mb-4">Gracias por ser parte de este momento tan especial en mi vida.</p>
+            <p class="text-[10px] text-slate-400 uppercase tracking-widest">Liam Stefano • 2026</p>
+        </footer>
+
+    </div>
+
+    <!-- Modal para ampliar fotos -->
+    <div id="imageModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeModal()">
+        <div class="relative max-w-lg w-full bg-white rounded-3xl overflow-hidden shadow-2xl p-4 text-center" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-slate-700 z-10 transition">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modalImg" src="" alt="Ampliada" class="w-full max-h-[70vh] object-contain rounded-2xl mb-3">
+            <h3 id="modalCaption" class="font-playfair font-bold text-navyText text-lg"></h3>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function openModal(src, caption) {
+            document.getElementById('modalImg').src = src;
+            document.getElementById('modalCaption').innerText = caption;
+            document.getElementById('imageModal').classList.remove('hidden');
+            document.getElementById('imageModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('flex');
+            document.getElementById('imageModal').classList.add('hidden');
+        }
+
+        // Cuenta regresiva
+        const eventDate = new Date('2026-10-24T16:30:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "<div class='col-span-4 text-goldSoft font-bold text-sm'>¡El gran día ha llegado!</div>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // RSVP WhatsApp Form con Confeti
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('guestName').value;
+            const attendance = document.getElementById('attendance').value;
+            const passes = document.getElementById('guestPasses').value;
+            const message = document.getElementById('guestMessage').value;
+
+            confetti({
+                particleCount: 150,
+                spread: 90,
+                origin: { y: 0.6 }
+            });
+
+            const phoneNumber = "51957052222"; 
+            const text = `¡Hola! Mi nombre es *${name}*. ${attendance} (${passes}). Mensaje: "${message}". ¡Nos vemos en el bautizo y corte de pelo de Liam Stefano!`;
+            const encodedText = encodeURIComponent(text);
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
+            }, 900);
+        });
+    </script>
+</body>
+</html>
